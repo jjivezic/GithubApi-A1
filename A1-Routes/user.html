@@ -1,0 +1,35 @@
+      <div class="container">
+                <a href="#/main" class="btn btn-primary">Back to search</a>
+        <div class="userDetails" ng-controller="UserController">
+            <h2>Username: {{user.login}}</h2>
+            <hr>
+            <img ng-src="{{user.avatar_url}}" alt="">
+            <hr>
+            <div class="form-group">
+                <label>Sort list by:</label>
+                <select ng-model="repoSortOrder">
+                        <option value="+name">Name</option>
+                        <option value="-stargazers_count">Stars</option>
+                        <option value="+language">Language</option>
+                    </select>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stars</th>
+                        <th>Language</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+                        <td>{{repo.name}}</td>
+                        <td>{{repo.stargazers_count | number:2}}</td>
+                        <td>{{repo.language}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+  
+        </div>

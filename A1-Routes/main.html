@@ -1,0 +1,14 @@
+
+    <div class="container" ng-controller="MainController">
+    
+        <h3> Search users from github by username and show theirs repositories:</h3>
+        <form ng-submit="search(username)">
+            <div class="search-box">
+                <input type="search" class="" placeholder="Search users from github..." ng-model="username" required>
+                <input type="submit" value="Search" class="btn btn-success">
+            </div>
+
+        </form>
+        <div class="error">{{error}}</div>
+    
+    </div>
