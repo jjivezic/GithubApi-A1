@@ -1,0 +1,37 @@
+body {
+    background: url('bg.png');
+}
+.userDetails {
+    background: rgba(128, 128, 128, 0.11);
+    padding: 9px;
+    margin-top: 23px;
+}
+.userDetails img{
+    height: 200px;
+    max-width: 100%;
+    background: rgba(132, 127, 127, 0.35);
+    border: 5px solid whitesmoke;
+}
+.userDetails h2{
+color: teal;
+}
+
+.container h3:first-child {
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px 2px #797575;
+    background: rgba(208, 208, 208, 0.31);
+    padding: 8px 9px;
+}
+.search-box input:first-child{
+    border: 5px solid whitesmoke;
+}
+.search-box input:last-child {
+    background-color: teal;
+    border-color: teal;
+}
+label {
+    color: teal;
+}
+select {
+    color: teal;
+}

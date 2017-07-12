@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--<link href="css/style.css" rel="stylesheet">-->
+    <link href="css/style.css" rel="stylesheet">
     <script src="node_modules/angular/angular.min.js"></script>
 
 </head>
@@ -16,16 +16,23 @@
 <body ng-app="myApp">
     <div ng-controller="MainController">
         <div class="container">
-                <h3> Search users from github by username and show theirs repositories:</h3>
+            <h3> Search users from github by username and show theirs repositories:</h3>
             <!--{{couuntdown}}-->
+            
             <form ng-submit="search(username)">
-                <input type="search" placeholder="Search users from github..." ng-model="username" required>
-                <input type="submit" value="Search"  class="btn btn-success">
+
+
+                <div class="search-box">
+                <input type="search" class="" placeholder="Search users from github..." ng-model="username" required>
+                <input type="submit" value="Search" class="btn btn-success">
+                </div>
+       
             </form>
 
-            <div ng-show="user" id="userDetails">
+            <div ng-show="user" id="userDetails" class="userDetails">
                 <h2>Username: {{user.login}}</h2>
-                <img ng-src="{{user.avatar_url}}" alt="" style="height:200px">
+                <hr>
+                <img ng-src="{{user.avatar_url}}" alt="">
                 <hr>
                 <div class="form-group">
                     <label>Sort list by:</label>

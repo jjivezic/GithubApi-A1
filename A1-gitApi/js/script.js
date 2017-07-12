@@ -66,7 +66,7 @@
 
         }
         var onError = function (reason) {
-            $scope.error = 'User with that name don\'t exist';
+            $scope.error = 'User with that name don\'t exist or Api ist\'n available';
         }
 
     }
