@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <script src="node_modules/angular/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="MainController">
+        <div class="container">
+                <h3> Search users from github by username and show theirs repositories:</h3>
+            <!--{{couuntdown}}-->
+            <form ng-submit="search(username)">
+                <input type="search" placeholder="Search users from github..." ng-model="username" required>
+                <input type="submit" value="Search"  class="btn btn-success">
+            </form>
+
+            <div ng-show="user" id="userDetails">
+                <h2>Username: {{user.login}}</h2>
+                <img ng-src="{{user.avatar_url}}" alt="" style="height:200px">
+                <hr>
+                <div class="form-group">
+                    <label>Sort list by:</label>
+                    <select ng-model="repoSortOrder">
+                        <option value="+name">Name</option>
+                        <option value="-stargazers_count">Stars</option>
+                        <option value="+language">Language</option>
+                    </select>
+                </div>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Stars</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+                            <td>{{repo.name}}</td>
+                            <td>{{repo.stargazers_count | number:2}}</td>
+                            <td>{{repo.language}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>{{error}}</div>
+        </div>
+    </div>
+    <!--<div ng-include="'userdetails.html'" ng-show="user" ></div>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="./js/script.js">
+    </script>
+    <script src="./js/github.js">
+    </script>
+</body>
+
+</html>
